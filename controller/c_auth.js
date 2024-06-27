@@ -33,11 +33,17 @@ let cari_username = function (username) {
 
 
 module.exports = {
-    form_login: function (req, res) {
-        let dataview = {
-            req: req
-        }
-        res.render('auth/form_login', dataview)
+  form_login: function (req, res) {
+    if (req.session.user) {
+      res.redirect("/dashboard")
+    } else {
+      let dataview = {
+        req: req,
+      };
+      res.render("auth/form_login", dataview);
+    }
+        
+        
     },
 
 
