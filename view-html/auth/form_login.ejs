@@ -1,15 +1,16 @@
 <%- include('../layout/header') %>
 <link rel="stylesheet" href="/custom-login.css">
 
-<% if (req.query.msg) { %>
+
+            
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <main class="form-signin w-100 m-auto">
+        <% if (req.query.msg) { %>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong><%= req.query.msg %></strong>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <% } %>
-            
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <main class="form-signin w-100 m-auto">
         <form method="post" action="/proses-login">
             <img class="mb-4" src="/image/data_barang.png" alt="" width="72" height="">
             <h1 class="h3 mb-3 fw-normal">Silakan masuk</h1>
