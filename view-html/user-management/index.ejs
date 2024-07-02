@@ -1,6 +1,23 @@
-<h1>user management</h1>
+<h1 style="text-align: center;">User Management</h1>
+<hr>
 
-<ul class="list-group">
+<a href="/user/tambah"><button class="btn btn-sm btn-primary mt-4"><i class="fa fa-plus"></i> Tambah User</button>
+</a>
+
+<% if (req.query.note == 'sukses') { %>
+    <div class="alert alert-success alert-dismissible fade show" style="margin-top: 20px;" role="alert">
+        <strong><i class="fa-solid fa-check-circle me-2"></i><%= req.query.pesan %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (req.query.note == 'gagal') { %>
+    <div class="alert alert-danger alert-dismissible fade show" style="margin-top: 20px;" role="alert">
+        <strong><i class="fa-solid fa-exclamation-triangle me-1"></i>Gagal, cek terminal</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<ul class="list-group mt-5" >
     <% for (const i in users) { %>
         <li class="list-group-item"><%= users[i].username%> (<%= users[i].nama_lengkap %>)</li>
     <% } %>
